@@ -1,0 +1,75 @@
+{
+  "schema": "ssq-secondary-ranked-tickets-v1",
+  "target_issue": "2026118",
+  "intended_draw_date_china": "2026-10-15",
+  "class": "SECONDARY_EXPLORATORY_DERIVATION_NOT_ORIGINAL_PRIMARY_PREREGISTERED_TICKET",
+  "public_primary_protocol_sha256": "491b2f369f0a54f37ebab818c834772736fad032d4f6f40ce6bd2b1b7c4d6021",
+  "public_frozen_forecast_sha256": "96957422b165fbc91df4fd61284e96bb22bfea68ac0f54d6c44f44880f9ef43a",
+  "public_primary_forecast_path": "forward/V0.6_PRIMARY_2026118.json",
+  "method": {
+    "frozen_distributions": [
+      "SHRUNK_EXPANDING",
+      "SHRUNK_RECENT180",
+      "SHRUNK_RECENT60"
+    ],
+    "mixture_weights": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "red_probability": "exp(sum of selected 6 red_log_weights)/elementary_symmetric_6(exp(all 33 red_log_weights))",
+    "blue_probability": "blue_probabilities[blue-1]",
+    "full_probability": "average of three normalized model joint probabilities",
+    "enumeration": "Exhaustive 1,107,568 unordered six-red combinations × 16 blue choices",
+    "selection": "rank complete outcomes by frozen mixture probability; ties lexicographic"
+  },
+  "top_ranked": [
+    {
+      "rank": 1,
+      "reds": [
+        4,
+        13,
+        14,
+        22,
+        24,
+        30
+      ],
+      "blue": 4,
+      "model_joint_probability": 6.447114035906907e-8
+    },
+    {
+      "rank": 2,
+      "reds": [
+        4,
+        13,
+        14,
+        18,
+        24,
+        30
+      ],
+      "blue": 4,
+      "model_joint_probability": 6.440910333975419e-8
+    },
+    {
+      "rank": 3,
+      "reds": [
+        1,
+        4,
+        13,
+        14,
+        24,
+        30
+      ],
+      "blue": 4,
+      "model_joint_probability": 6.436025760714373e-8
+    }
+  ],
+  "fair_uniform_probability_per_exact_seven_ball_ticket": 5.642994380480476e-8,
+  "research_boundaries": [
+    "Predicted ticket ranks were derived after the original frozen distribution file; they were not separately specified as primary tickets in V0.6 protocol.",
+    "No historical hit rate or robust prospective improvement over uniform has been verified.",
+    "These are probabilities assigned by a research model, NOT validated real-world odds or an edge over fair drawing.",
+    "This derived file is supplementary and cannot change the originally pre-registered scoring model or e-process.",
+    "Do not alter the historical frozen JSON, and do not manufacture a pre-cutoff witness if absent."
+  ]
+}
