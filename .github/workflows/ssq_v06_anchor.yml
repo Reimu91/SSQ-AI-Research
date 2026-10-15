@@ -1,0 +1,39 @@
+name: SSQ V0.6 pre-result snapshot integrity
+on:
+  push:
+    paths:
+      - 'forward/V0.6_PROTOCOL.json'
+      - 'forward/V0.6_PROTOCOL.sha256'
+      - 'forward/V0.6_PRIMARY_2026118.json'
+      - 'forward/V0.6_PRIMARY_2026118.sha256'
+      - '.github/workflows/ssq_v06_anchor.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout committed evidence
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify both frozen objects
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd forward
+          sha256sum --check V0.6_PROTOCOL.sha256
+          sha256sum --check V0.6_PRIMARY_2026118.sha256
+          echo 'VERIFIED_AT_GITHUB_SERVER_RUN: see server-created workflow timestamp and HEAD commit SHA'
+          sha256sum V0.6_PROTOCOL.json V0.6_PRIMARY_2026118.json
+      - name: Upload evidence copy
+        uses: actions/upload-artifact@v4
+        with:
+          name: ssq-v06-pre-result-evidence-${{ github.run_id }}
+          path: |
+            forward/V0.6_PROTOCOL.json
+            forward/V0.6_PROTOCOL.sha256
+            forward/V0.6_PRIMARY_2026118.json
+            forward/V0.6_PRIMARY_2026118.sha256
+          retention-days: 90
