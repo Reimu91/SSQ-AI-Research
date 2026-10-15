@@ -1,0 +1,34 @@
+# Public evidence repo: never upload private core sources or research datasets
+*.py
+*.ipynb
+*.csv
+*.parquet
+*.sqlite
+*.db
+*.zip
+*.tar
+*.gz
+*.7z
+*.pkl
+*.pickle
+*.joblib
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+__pycache__/
+.venv/
+venv/
+source_transport/
+results/
+data/
+tests/
+rc2_capture_runs/
+secrets/
+credentials/
+SSQ-AI-Core/
+# .gitignore is a safety net, not an access-control boundary: browser uploads or git add -f can still publish ignored files.
